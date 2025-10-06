@@ -14,7 +14,7 @@ print("Anti-AFK ativado!")
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SadOz8/U/main/I", true))()
 
 local window = library:AddWindow("RUDY MUCK HUB| BY MONARCA", {
-    main_color = Color3.fromRGB(128, 128, 128),
+    main_color = Color3.fromRGB(173, 255, 47),
     min_size = Vector2.new(650, 870),
     can_resize = true,
 })
