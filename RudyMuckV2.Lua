@@ -268,7 +268,7 @@ AutoFarm:AddSwitch("Anti AFK", function(state)
         uselesslabelone.Position = UDim2.new(0.3,0,0,0)
         uselesslabelone.Size = UDim2.new(0,95,0,24)
         uselesslabelone.Font = Enum.Font.SourceSans
-        uselesslabelone.Text = "Anti Afk sacado de chat gpt de rafael😂"
+        uselesslabelone.Text = "Anti Afk 💪🏻Monark💪🏻"
         uselesslabelone.TextColor3 = Color3.fromRGB(255,255,255)
         uselesslabelone.TextSize = 14
 
@@ -4641,3 +4641,4 @@ Credits:AddLabel("MONARKxSXULL on 🔝")
 Credits:AddLabel("¿Qué haces viendo esto si no eres VAL?") 
 
 Credits:AddLabel("Si ves esto eres el próximo en morir...")
+
