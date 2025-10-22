@@ -8,7 +8,7 @@ local LocalPlayer = Players.LocalPlayer
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Pheonix%20Private%20Librerya"))()
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("⚠️ Toxic PAID V2 | Cracked by Alejandro ⚠️", {
+local window = library:AddWindow("💪🏻 RudyMuck V2 | By Monark 🔝", {
     main_color = Color3.fromRGB(34, 56, 34), 
     min_size = Vector2.new(600, 820),
     can_resize = false,
@@ -4632,11 +4632,12 @@ Gift:AddButton(
 
 local Credits = window:AddTab("Credits")
 
-Credits:AddLabel("Toxic Paid V2 | Cracked")
-Credits:AddLabel("Script Desofuscado by Alejandro and Jesus my friend 🫂")
-Credits:AddLabel("aprendan a hacer Scripts sin chat gpt")
-Credits:AddLabel("MVX basura , ni Script saben hacer🔥")
-Credits:AddLabel("JASSON y Rafa y king, me pelan toda la verga")
-Credits:AddLabel("Álamo 137, Flores magon, 45417 Tonalá, Jalisco México, bonita casa")
-Credits:AddLabel("Rafael íñiguez castro ") 
-Credits:AddLabel("Se te invita que ofrescas una disculpa publica, asi mi ataque, disminuyera")
+Credits:AddLabel("Rudy Muck V2 | VAL")
+Credits:AddLabel("Script diseñado para Monark y Andre 🫂")
+Credits:AddLabel("Monark on top")
+Credits:AddLabel("VAL om top by Monark 🔥")
+Credits:AddLabel("siempre en la sima del 🌍")
+Credits:AddLabel("MONARKxSXULL on 🔝")
+Credits:AddLabel("¿Qué haces viendo esto si no eres VAL?") 
+
+Credits:AddLabel("Si ves esto eres el próximo en morir...")
