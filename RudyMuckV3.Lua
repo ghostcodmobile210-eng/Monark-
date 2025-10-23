@@ -4,7 +4,7 @@
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library/main/Library"))()
 local Window = Library:AddWindow("RudyMuck V3 | By MONARKxSXULL"), {
-    main_color = Color3.fromRGB(34, 139, 34),
+    main_color = Color3.fromRGB(255, 0, 50),
     min_size = Vector2.new(500, 600),
     can_resize = true
 })
