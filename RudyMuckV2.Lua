@@ -8,7 +8,7 @@ local LocalPlayer = Players.LocalPlayer
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Pheonix%20Private%20Librerya"))()
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("💪🏻 RudyMuck V2 | By Monark 🔝", {
+local window = library:AddWindow("💪🏻 RudyMuck V2 | By MonarkxSxull 🔝", {
     main_color = Color3.fromRGB(34, 56, 34), 
     min_size = Vector2.new(600, 820),
     can_resize = false,
@@ -4632,13 +4632,14 @@ Gift:AddButton(
 
 local Credits = window:AddTab("Credits")
 
-Credits:AddLabel("Rudy Muck V2 | VAL")
+Credits:AddLabel("Rudy Muck V2 | MONARK")
 Credits:AddLabel("Script diseñado para Monark y Andre 🫂")
 Credits:AddLabel("Monark on top")
-Credits:AddLabel("VAL om top by Monark 🔥")
-Credits:AddLabel("siempre en la sima del 🌍")
+Credits:AddLabel("MVX on top by Monark 🔥")
+Credits:AddLabel("siempre en la sima del mundo")
 Credits:AddLabel("MONARKxSXULL on 🔝")
-Credits:AddLabel("¿Qué haces viendo esto si no eres VAL?") 
+Credits:AddLabel("¿Qué haces viendo esto si no eres Sxull?") 
 
 Credits:AddLabel("Si ves esto eres el próximo en morir...")
+
 
