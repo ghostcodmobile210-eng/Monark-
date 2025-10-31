@@ -8,7 +8,7 @@ local LocalPlayer = Players.LocalPlayer
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Pheonix%20Private%20Librerya"))()
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("💪🏻PapiMonarkxMiviejaSxull"), {
+local window = library:AddWindow("RUDY MUCK | 👹PapiMonarkxMiviejaSxull👹", {
     main_color = Color3.fromRGB(34, 56, 34), 
     min_size = Vector2.new(600, 820),
     can_resize = false,
@@ -213,7 +213,7 @@ end)
 
 
 -- 🔹 SWITCH PARA ACTIVAR/DESACTIVAR EL ANTI AFK
-AutoFarm:AddSwitch("Anti AFK", function(state)
+AutoFarm:AddSwitch("Anti AFK MONARK", function(state)
     if state then
         -- ✅ ACTIVAR ANTI AFK
         if getgenv().AntiAfkExecuted and thisoneissocoldww then 
@@ -4641,6 +4641,7 @@ Credits:AddLabel("MONARKxSXULL on 🔝")
 Credits:AddLabel("¿Qué haces viendo esto si no eres Sxull?") 
 
 Credits:AddLabel("Si ves esto eres el próximo en morir...")
+
 
 
 
