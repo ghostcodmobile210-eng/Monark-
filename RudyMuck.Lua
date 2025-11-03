@@ -1,6 +1,6 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/EpicDeevv/Private-Scripts/refs/heads/main/th5j6j5j5j", true))()
 
-local window = library:AddWindow("Project V1", {
+local window = library:AddWindow("RudyMuck V1", {
     main_color = Color3.fromRGB(193, 0, 230),
     min_size = Vector2.new(700, 750),
     can_resize = true,
