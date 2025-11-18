@@ -7,8 +7,11 @@ local LocalPlayer = Players.LocalPlayer
 -- CARGA DE LIBRERÍA
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Pheonix%20Private%20Librerya"))()
 
+local player = game.Players.LocalPlayer
+local displayName = player.DisplayName or player.Name
+
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("RUDY MUCK | 👹PapiMonarkxMiviejaSxull👹", {
+local window = library:AddWindow("RudyMuck |- Bienvenido ".. displayName, {
     main_color = Color3.fromRGB(34, 56, 34), 
     min_size = Vector2.new(600, 820),
     can_resize = false,
@@ -885,7 +888,7 @@ autoEquipToolsFolder:AddSwitch("Fast Tools", function(Value)
     _G.FastTools = Value
     
     local toolSettings = {
-        {"Punch", "attackTime", Value and 0 or 0.35},
+        {"Punch", "attackTime", Value and 0 or 0.01},
         {"Ground Slam", "attackTime", Value and 0 or 6},
         {"Stomp", "attackTime", Value and 0 or 7},
         {"Handstands", "repTime", Value and 0 or 1},
@@ -4633,14 +4636,15 @@ Gift:AddButton(
 local Credits = window:AddTab("Credits")
 
 Credits:AddLabel("Rudy Muck V2 | MONARK")
-Credits:AddLabel("Script diseñado para Monark y Andre 🫂")
-Credits:AddLabel("Monark on top")
-Credits:AddLabel("MVX on top by Monark 🔥")
+Credits:AddLabel("Script diseñado para Monark")
+Credits:AddLabel("Monark dominando")
+Credits:AddLabel("MCL on top by Monark 🔥")
 Credits:AddLabel("siempre en la sima del mundo")
-Credits:AddLabel("MONARKxSXULL on 🔝")
-Credits:AddLabel("¿Qué haces viendo esto si no eres Sxull?") 
+Credits:AddLabel("MONARK on 🔝")
+Credits:AddLabel("Siempre top") 
 
 Credits:AddLabel("Si ves esto eres el próximo en morir...")
+
 
 
 
