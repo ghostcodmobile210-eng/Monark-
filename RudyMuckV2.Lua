@@ -12,7 +12,7 @@ local displayName = player.DisplayName or player.Name
 
 -- VENTANA PRINCIPAL
 local window = library:AddWindow("RudyMuck |- Bienvenido ".. displayName, {
-    main_color = Color3.fromRGB(34, 56, 34), 
+    main_color = Color3.fromRGB(0, 0, 0), 
     min_size = Vector2.new(600, 820),
     can_resize = false,
 })
@@ -4644,6 +4644,7 @@ Credits:AddLabel("MONARK on 🔝")
 Credits:AddLabel("Siempre top") 
 
 Credits:AddLabel("Si ves esto eres el próximo en morir...")
+
 
 
 
