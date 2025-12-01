@@ -1,9 +1,9 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xccxk/LIB-GNIK/refs/heads/main/GNIK-INKGG", true))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/556ii/zzzzzzizzzzzz/refs/heads/main/iiiiii19", true))()
 
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
 
-local window = library:AddWindow("RudyMuck| Public | Bienvenido ".. displayName, {
+local window = library:AddWindow("RudyMuck| Public".. displayName, {
     main_color = Color3.fromRGB(0, 0, 139),
     min_size = Vector2.new(700, 700),
     can_resize = true,
