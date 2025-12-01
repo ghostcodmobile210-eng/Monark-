@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/556ii/zzzzzzizzzzzz/refs/heads/main/iiiiii19", true))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xccxk/LIB-GNIK/refs/heads/main/GNIK-INKGG", true))()
 
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
