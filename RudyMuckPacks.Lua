@@ -1,4 +1,4 @@
--- deobf By Alejandro 
+-- deobf By MONARCA26
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4188,6 +4188,7 @@ Credits:AddLabel("Script Packs")
 Credits:AddLabel("Siempre top") 
 
 Credits:AddLabel("Si ves esto eres el próximo en morir...")
+
 
 
 
