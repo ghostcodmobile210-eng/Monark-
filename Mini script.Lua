@@ -14,7 +14,7 @@ Player.Idled:Connect(preventAFK)
 
 
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/OMEGADEZZ/libreria-hz/refs/heads/main/libreria", true))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ghostcodmobile210-eng/Monark-/refs/heads/main/librerya%20tokkatk.Lua", true))()
 
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
@@ -4507,3 +4507,4 @@ Credits:AddLabel("the strongest Paid / Script OP")
 Credits:AddLabel("Script Creado por:")
 Credits:AddLabel("MONARCA26 Y DILAN")
 Credits:AddLabel("TOP MONARCA26")
+
