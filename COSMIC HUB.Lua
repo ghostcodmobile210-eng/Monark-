@@ -18,7 +18,7 @@ local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xccxk/TEST-LIB/refs/heads/main/NATALL"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xccxk/LIB-GNIK/refs/heads/main/GNIK-INKGG"))()
 
 local player = game.Players.LocalPlayer
 local displayName = player.DisplayName or player.Name
