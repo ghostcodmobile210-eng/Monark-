@@ -1982,116 +1982,138 @@ Killer:AddSwitch("Auto Kill", function(bool)
     end)
 end)
 
+-- 🔒 SISTEMA DE BLACKLIST (AUTO KILL) - ACTUALIZADO
 
--- ⚫ SISTEMA DE BLACKLIST (Auto Kill)
-_G.blacklistPlayers = _G.blacklistPlayers or {}
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+local LocalPlayer = Players.LocalPlayer
 
+-- 🌐 Variables globales
+_G.blacklistPlayers = _G.blacklistPlayers or {} -- [UserId] = true
+_G.autoKillBlacklist = false
+
+-- 🏷️ Actualizar label
 local function updateBlacklistLabel()
-    if #_G.blacklistPlayers == 0 then
-        targetPlayerLabel.Text = "Blacklist: Ninguno"
-    else
-        targetPlayerLabel.Text = "Blacklist: " .. table.concat(_G.blacklistPlayers, ", ")
-    end
-end
+    local names = {}
 
--- 🧾 Crear dropdown dinámico (DisplayName | Username)
-local blacklistDropdown = killerTab:AddDropdown("Agregar a BlackList", function(selectedItem)
-    local selectedDisplay, selectedUser = selectedItem:match("(.+)%s|%s(.+)")
-    if not selectedUser then return end
-
-    for _, plr in ipairs(Players:GetPlayers()) do
-        if plr.Name == selectedUser then
-            local playerInfo = plr.Name .. " (" .. plr.DisplayName .. ")"
-            if not table.find(_G.blacklistPlayers, playerInfo) then
-                table.insert(_G.blacklistPlayers, playerInfo)
-                game:GetService("StarterGui"):SetCore("SendNotification", {
-                    Title = "⚫ Blacklist",
-                    Text = selectedDisplay .. " añadido a la lista negra",
-                    Duration = 3
-                })
-                updateBlacklistLabel()
-            end
+    for userId in pairs(_G.blacklistPlayers) do
+        local plr = Players:GetPlayerByUserId(userId)
+        if plr then
+            table.insert(names, plr.DisplayName)
         end
     end
-end)
 
--- 🧍 Llenar dropdown con los jugadores actuales
-for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer then
-        blacklistDropdown:Add(player.DisplayName .. " | " .. player.Name)
+    if #names == 0 then
+        targetPlayerLabel.Text = "Blacklist: Ninguno"
+    else
+        targetPlayerLabel.Text = "Blacklist: " .. table.concat(names, ", ")
     end
 end
 
--- 🔄 Actualizar dropdown cuando entran o salen jugadores
-Players.PlayerAdded:Connect(function(player)
-    if player ~= LocalPlayer then
-        blacklistDropdown:Add(player.DisplayName .. " | " .. player.Name)
+-- 📋 Dropdown Blacklist
+local blacklistDropdown = killerTab:AddDropdown("Agregar a BlackList", function(selectedItem)
+    local _, username = selectedItem:match("(.+)%s|%s(.+)")
+    if not username then return end
+
+    local plr = Players:FindFirstChild(username)
+    if plr and not _G.blacklistPlayers[plr.UserId] then
+        _G.blacklistPlayers[plr.UserId] = true
+
+        StarterGui:SetCore("SendNotification", {
+            Title = "⚫ Blacklist",
+            Text = plr.DisplayName .. " añadido a la lista",
+            Duration = 3
+        })
+
+        updateBlacklistLabel()
     end
 end)
 
-Players.PlayerRemoving:Connect(function(player)
+-- 🔄 Refrescar dropdown
+local function refreshDropdown()
     blacklistDropdown:Clear()
     for _, plr in ipairs(Players:GetPlayers()) do
         if plr ~= LocalPlayer then
             blacklistDropdown:Add(plr.DisplayName .. " | " .. plr.Name)
         end
     end
-end)
+end
 
--- 🗑️ Quitar el último jugador agregado
+refreshDropdown()
+Players.PlayerAdded:Connect(refreshDropdown)
+Players.PlayerRemoving:Connect(refreshDropdown)
+
+-- 🗑️ Quitar último (opcional)
 killerTab:AddButton("Quitar Último de BlackList", function()
-    if #_G.blacklistPlayers > 0 then
-        local removed = table.remove(_G.blacklistPlayers)
-        game:GetService("StarterGui"):SetCore("SendNotification", {
+    local lastUserId
+
+    for userId in pairs(_G.blacklistPlayers) do
+        lastUserId = userId
+    end
+
+    if lastUserId then
+        local plr = Players:GetPlayerByUserId(lastUserId)
+        _G.blacklistPlayers[lastUserId] = nil
+
+        StarterGui:SetCore("SendNotification", {
             Title = "⚪ Blacklist",
-            Text = "Eliminado: " .. removed,
+            Text = plr and (plr.DisplayName .. " eliminado") or "Jugador eliminado",
             Duration = 3
         })
-        updateBlacklistLabel()
     else
-        game:GetService("StarterGui"):SetCore("SendNotification", {
+        StarterGui:SetCore("SendNotification", {
             Title = "⚪ Blacklist",
-            Text = "No hay jugadores en la lista.",
+            Text = "No hay jugadores en la lista",
             Duration = 3
         })
     end
+
+    updateBlacklistLabel()
 end)
 
--- 🧹 Limpiar la BlackList completa
+-- 🧹 Limpiar Blacklist
 killerTab:AddButton("Limpiar BlackList", function()
     _G.blacklistPlayers = {}
     updateBlacklistLabel()
-    game:GetService("StarterGui"):SetCore("SendNotification", {
+
+    StarterGui:SetCore("SendNotification", {
         Title = "❌ Blacklist",
         Text = "Lista negra vaciada",
         Duration = 3
     })
 end)
 
--- ⚔️ AUTO KILL DE BLACKLIST
+-- ⚔️ AUTO KILL BLACKLIST
 killerTab:AddSwitch("Matar BlackList", function(state)
     _G.autoKillBlacklist = state
 
     if state then
         task.spawn(function()
             while _G.autoKillBlacklist do
-                pcall(function()
-                    for _, info in ipairs(_G.blacklistPlayers) do
-                        local targetName = info:match("^(%S+)")
-                        local targetPlayer = Players:FindFirstChild(targetName)
-                        if targetPlayer 
-                            and targetPlayer.Character
-                            and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-                            and targetPlayer.Character:FindFirstChild("Humanoid")
-                            and targetPlayer.Character.Humanoid.Health > 0 then
-                                killPlayer(targetPlayer)
+                for userId in pairs(_G.blacklistPlayers) do
+                    local target = Players:GetPlayerByUserId(userId)
+                    if target and target.Character then
+                        local hum = target.Character:FindFirstChild("Humanoid")
+                        if hum and hum.Health > 0 then
+                            killPlayer(target)
                         end
                     end
-                end)
-                task.wait(0.1)
+                end
+                task.wait(0.15)
             end
         end)
     end
+end)
+
+-- 🔁 Auto-kill al reaparecer
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(char)
+        if _G.blacklistPlayers[player.UserId] and _G.autoKillBlacklist then
+            task.wait(0.2)
+            local hum = char:FindFirstChild("Humanoid")
+            if hum then hum.Health = 0 end
+        end
+    end)
 end)
 
 local spyTargetDropdown = Killer:AddDropdown("Select View Target", function(name)
@@ -4807,4 +4829,5 @@ local Credits = window:AddTab("Credits")
 
 Credits:AddLabel("Clan top")
 Credits:AddLabel("Script Clan GXC")
+
 Credits:AddLabel("By MONARCA26")
